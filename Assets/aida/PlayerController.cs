@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float m_movepower = 5f;
-    [SerializeField] float m_jumppower = 1f;
+    [SerializeField] float m_jumppower = 1000f;
     [SerializeField] float m_maxspeed = 1f;
     [SerializeField] float m_breakCoeff = 0.9f;
     Rigidbody2D m_rb;
     float h;
+    float v;
+    [SerializeField] int _jumpcount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,11 @@ public class PlayerController : MonoBehaviour
         h = Input.GetAxisRaw("Horizontal");
         Vector2 dir = new Vector2(h, 0);
         m_rb.velocity = dir * m_movepower;
-
+        if(Input.GetButtonDown("Jump") && _jumpcount < 2)
+        {
+            _jumpcount++;
+            m_rb.AddForce(Vector2.up * m_jumppower * 100);
+        }
     }
     void FixedUpdate()
     {
@@ -42,6 +48,13 @@ public class PlayerController : MonoBehaviour
             {
                 m_rb.AddForce(Vector2.right * m_movepower * h, ForceMode2D.Force);
             }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            _jumpcount = 0;
         }
     }
 }
