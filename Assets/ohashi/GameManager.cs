@@ -7,20 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int _score = 0;
-    //public static GameManager _instance;
-    //void Awake()
-    //{
-    //    if(_instance == null)
-    //    {
-    //        _instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    [Header("スコア")] public static int _score = 0;
+    public bool _isPlay = false;
     void Start()
     {
         FadeIn();
@@ -33,7 +21,6 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// フェードアウト
     /// </summary>
-    /// <param name="sceneName"></param>
     public void FadeOut(string sceneName)
     {
         GameObject panel = GameObject.Find("Panel");
@@ -43,9 +30,13 @@ public class GameManager : MonoBehaviour
             //fadeoutが終わったら呼ばれる
             .OnComplete(() => SceneManager.LoadScene(sceneName));
     }
+    /// <summary>
+    /// フェードイン
+    /// </summary>
     public void FadeIn()
     {
         GameObject panel = GameObject.Find("InPanel");
+        //パネルがあったらフェードインする
         if (panel == null)
         {
             return;
@@ -53,7 +44,8 @@ public class GameManager : MonoBehaviour
         else
         {
             panel.GetComponent<Image>().DOFade(0, 1.5f)
-            .SetDelay(0.5f);
+            .SetDelay(0.5f)
+            .OnComplete(() => _isPlay = true);
         }
 
     }
