@@ -13,7 +13,6 @@ public class ScoreManager : MonoBehaviour
     private readonly ReactiveProperty<int> _score = new IntReactiveProperty();
     void Start()
     {
-        
     }
 
     void Update()

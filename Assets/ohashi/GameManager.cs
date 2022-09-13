@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("スコア")] public static int _score = 0;
-
+    public static int _score = 0;
+    [SerializeField] Text _scoreText;
     public bool _isPlay = false;
     void Start()
     {
@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if(_scoreText != null)
+        {
+            _scoreText.text = _score.ToString("D5");
+        }
+        
     }
     /// <summary>
     /// フェードアウト
