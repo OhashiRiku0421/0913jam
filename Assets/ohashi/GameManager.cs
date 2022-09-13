@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+<<<<<<< HEAD
     [Header("スコア")] public static int _score = 0;
+=======
+    public static int _score = 0;
+    [SerializeField] Text _scoreText;
+>>>>>>> f88ba8b4677cea5255381caa7aee4092f3c85661
     public bool _isPlay = false;
     void Start()
     {
@@ -16,7 +21,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if(_scoreText != null)
+        {
+            _scoreText.text = _score.ToString("D5");
+        }
+        
     }
     /// <summary>
     /// フェードアウト
