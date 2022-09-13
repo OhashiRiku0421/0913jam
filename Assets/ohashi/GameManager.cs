@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("ÉXÉRÉA")] public static int _score = 0;
+
     public bool _isPlay = false;
     void Start()
     {
