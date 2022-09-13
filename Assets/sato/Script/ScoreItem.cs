@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ScoreItem : ItemBase2D
 {
-    [SerializeField, Header("加算スコア")] int _addScore = 20;
+    [SerializeField, Header("加算スコア")] int _addScore = 100;
 
     /// <summary>
     /// スコア取得時の加算
     /// </summary>
     public override void Activate()
     {
-
+        GameManager._score += _addScore;
     }
 }
