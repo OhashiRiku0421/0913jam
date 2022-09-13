@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour
         Debug.Log("敵が動いています");
     }
 
-    public virtual void EnemyScale() 
+    public void EnemyScale() 
     {
         // キャラクターの大きさ。負数にすると反転される
         Vector2 scale = transform.localScale;

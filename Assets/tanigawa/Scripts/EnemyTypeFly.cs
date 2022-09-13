@@ -74,7 +74,7 @@ public class EnemyTypeFly: EnemyBase
             float f = 1.0f / _T; //êUïù
             float sin = Mathf.Sin(2 * Mathf.PI * f * Time.time);
 
-            Vector2 v = new Vector2(_enemySpeed, _pow * sin);
+            Vector2 v = new Vector2(_enemySpeed * Time.deltaTime, _pow * sin);
             transform.Translate(v);
         }
 
