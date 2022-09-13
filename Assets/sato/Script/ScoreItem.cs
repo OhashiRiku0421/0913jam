@@ -6,6 +6,9 @@ public class ScoreItem : ItemBase2D
 {
     [SerializeField, Header("‰ÁŽZƒXƒRƒA")] int _addScore = 100;
 
+    float time = 0f;
+    float killTime = 8f;
+
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -18,6 +21,16 @@ public class ScoreItem : ItemBase2D
         float vy = Random.Range(-5f, 5f);
         Vector3 force = new Vector3(vx, vy, 0);
         _rb.AddForce(force, (ForceMode2D)ForceMode.Impulse);
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+
+        if (time > killTime)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     /// <summary>

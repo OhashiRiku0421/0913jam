@@ -6,17 +6,10 @@ public class PopGenerater : MonoBehaviour
 {
     public GameObject _enemyPrefab; // 敵プレハブ
     [SerializeField] Transform _popTransform; // 出現位置
-    private float _interval; // リポップ秒数
+    public float _interval = 4f; // リポップ秒数
     float _time = 0f; // 経過時間
 
     bool isFirst = false;
-
-
-    void Start()
-    {
-        _interval = 4f;
-    }
-
 
     void Update()
     {
