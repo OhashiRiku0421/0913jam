@@ -7,17 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static int _score = 0;
-
+    public int _score = 0;
+    //public static GameManager _instance;
+    //void Awake()
+    //{
+    //    if(_instance == null)
+    //    {
+    //        _instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
     void Start()
     {
-        
+        FadeIn();
     }
 
     void Update()
     {
-       
+
     }
+    /// <summary>
+    /// フェードアウト
+    /// </summary>
+    /// <param name="sceneName"></param>
     public void FadeOut(string sceneName)
     {
         GameObject panel = GameObject.Find("Panel");
@@ -29,6 +45,16 @@ public class GameManager : MonoBehaviour
     }
     public void FadeIn()
     {
+        GameObject panel = GameObject.Find("InPanel");
+        if (panel == null)
+        {
+            return;
+        }
+        else
+        {
+            panel.GetComponent<Image>().DOFade(0, 1.5f)
+            .SetDelay(0.5f);
+        }
 
     }
 }
