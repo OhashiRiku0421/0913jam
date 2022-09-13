@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     float h;
     float v;
     [SerializeField] int _jumpcount = 0;
+
+    Animator _anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
         m_rb.velocity = dir * m_movepower;
         if(Input.GetButtonDown("Jump") && _jumpcount < 2)
         {
+            _anim.SetTrigger("isJump 0");
             _jumpcount++;
             m_rb.AddForce(Vector2.up * m_jumppower * 100);
             Debug.Log(_jumpcount);
@@ -38,6 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             if (m_rb.velocity.x != 0)
             {
+                _anim.SetBool("isRun", false);
                 Vector2 v = m_rb.velocity;
                 v.x = v.x * m_breakCoeff;
                 m_rb.velocity = v;
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             if (h > 0 ? m_rb.velocity.x < m_maxspeed : -1 * m_rb.velocity.x < m_maxspeed)
             {
+                _anim.SetBool("isRun", true);
                 m_rb.AddForce(Vector2.right * m_movepower * h, ForceMode2D.Force);
                 //m_rb.velocity = new Vector2(m_movepower, m_rb.velocity.y);
             }
