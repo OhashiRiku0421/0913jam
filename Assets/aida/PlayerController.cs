@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             _jumpcount++;
             m_rb.AddForce(Vector2.up * m_jumppower * 100);
+            Debug.Log(_jumpcount);
         }
     }
     void FixedUpdate()
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
             if (h > 0 ? m_rb.velocity.x < m_maxspeed : -1 * m_rb.velocity.x < m_maxspeed)
             {
                 m_rb.AddForce(Vector2.right * m_movepower * h, ForceMode2D.Force);
+                //m_rb.velocity = new Vector2(m_movepower, m_rb.velocity.y);
             }
         }
     }
