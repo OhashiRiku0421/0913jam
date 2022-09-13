@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _anim = GetComponent<Animator>();
         m_rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
         m_rb.velocity = dir * m_movepower;
         if(Input.GetButtonDown("Jump") && _jumpcount < 2)
         {
-            _anim.SetTrigger("isJump 0");
+            _anim.SetBool("isJump", true);
             _jumpcount++;
             m_rb.AddForce(Vector2.up * m_jumppower * 100);
             Debug.Log(_jumpcount);
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground")
         {
+            _anim.SetBool("isJump", false);
             _jumpcount = 0;
         }
     }
