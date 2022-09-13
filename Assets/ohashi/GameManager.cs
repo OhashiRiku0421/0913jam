@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
 {
     [Header("スコア")] public static int _score = 0;
     [SerializeField] Text _scoreText;
-    public bool _isPlay = false;
+    [SerializeField] Text _timeText;
+    public bool isPlay = false;
+    bool isPanel = false;
+    [SerializeField] float timer = 60;
+    
     void Start()
     {
         FadeIn();
@@ -17,17 +21,43 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(_scoreText != null)
+        if (isPlay && !isPanel)
+        {
+            GameObject panel = GameObject.Find("InPanel");
+            panel.GetComponent<Image>().enabled = false;
+            isPanel = true;
+        }
+        Timer();
+        Score();
+    }
+    void Score()
+    {
+        if (_scoreText != null)
         {
             _scoreText.text = _score.ToString("D5");
         }
-        
+    }
+    void Timer()
+    {
+        if (isPlay)
+        {
+            timer -= Time.deltaTime;
+        }
+        if (_timeText != null && timer >= 0.001f)
+        {
+            _timeText.text = timer.ToString("F2");
+        }
+        else if (timer <= 0.00f)
+        {
+            FadeOut("result");
+        }
     }
     /// <summary>
     /// フェードアウト
     /// </summary>
     public void FadeOut(string sceneName)
     {
+        isPlay = false;
         GameObject panel = GameObject.Find("Panel");
         panel.GetComponent<Image>().enabled = true;
         panel.GetComponent<Image>().DOFade(1, 1.5f)
@@ -50,8 +80,11 @@ public class GameManager : MonoBehaviour
         {
             panel.GetComponent<Image>().DOFade(0, 1.5f)
             .SetDelay(0.5f)
-            .OnComplete(() => _isPlay = true);
+            .OnComplete(() => isPlay = true);
         }
-
+    }
+    public void Reset()
+    {
+        _score = 0;
     }
 }
