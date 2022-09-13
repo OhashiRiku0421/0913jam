@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         }
         else if (timer <= 0.00f)
         {
-            FadeOut("result");
+            FadeOut("result1");
         }
     }
     /// <summary>
