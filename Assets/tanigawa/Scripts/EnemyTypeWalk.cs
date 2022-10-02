@@ -38,4 +38,14 @@ public class EnemyTypeWalk : EnemyBase
             _canMove = false;
         }
     }
+
+    void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
+    IEnumerator DestroyTIme()
+    {
+        yield return new WaitForSeconds(_time);
+        Destroy();
+    }
 }

@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     /// <summary>Enemyオブジェクトをスポーンさせる処理 /// </summary>
     private void Spawn()
     {
-        int enemyindex = Random.Range(0, _enemyPrefab.Count - 1);//乱数生成
+        int enemyindex = Random.Range(0, _enemyPrefab.Count);//乱数生成
         GameObject enemy = _enemyPrefab[enemyindex];//乱数で得たIndexのプレハブをleafに入れる
         Instantiate(enemy, _Spawner);// プレハブから指定の葉オブジェクト生成
     }

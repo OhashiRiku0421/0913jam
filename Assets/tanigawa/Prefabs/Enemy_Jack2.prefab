@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2570409507744932098}
   - component: {fileID: 8470319860864237562}
   - component: {fileID: 6090611022339849623}
-  - component: {fileID: 4710531541311078618}
+  - component: {fileID: 3843465770318166254}
   m_Layer: 0
   m_Name: Enemy_Jack2
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1280044129694449787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.24, y: 0, z: 0}
-  m_LocalScale: {x: 0.55806, y: 0.55806, z: 0.55806}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6762071, y: 2.100019}
   m_EdgeRadius: 0
---- !u!114 &4710531541311078618
+--- !u!114 &3843465770318166254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,12 +148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyRb: {fileID: 0}
   _anim: {fileID: 0}
-  _enemySpeed: 3
+  _enemySpeed: 1
   _negative: 0
   _canMove: 0
   _moveType1: 0
   _moveType2: 0
   _moveType3: 0
-  _moveType4: 0
+  _moveType4: 1
   _pow: 0.05
   _T: 1

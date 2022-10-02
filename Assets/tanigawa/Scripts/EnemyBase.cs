@@ -14,7 +14,9 @@ public class EnemyBase : MonoBehaviour
     [Header("移動方向反転")] public bool _negative;
     /// <summary> 行動可能フラグ /// </summary>
     [HideInInspector] public bool _canMove;
-    
+    /// <summary> 消えるまでの時間 /// </summary>
+    [Header("消えるまでの時間")] public　float _time = 10f;
+
 
     void Start()
     {

@@ -21,7 +21,6 @@ public class EnemyTypeFly: EnemyBase
     /// <summary> プレイヤーの座標情報などを受け取る /// </summary>
     Transform _player_T;
 
-    // Start is called before the first frame update
     void Start()
     {
         _enemyRb = GetComponent<Rigidbody2D>();
@@ -35,6 +34,7 @@ public class EnemyTypeFly: EnemyBase
     {
         EnemyScale();
         EnemyMove();
+        StartCoroutine(DestroyTIme());
     }
 
     /// <summary> EnemyMove()をオーバーライドする/// </summary>
@@ -98,5 +98,14 @@ public class EnemyTypeFly: EnemyBase
             Destroy(other.gameObject);
             _canMove = false;
         }
+    }
+    void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
+    IEnumerator DestroyTIme()
+    {
+        yield return new WaitForSeconds(_time);
+        Destroy();
     }
 }
