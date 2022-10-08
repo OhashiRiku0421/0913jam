@@ -4,78 +4,46 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float m_movepower = 5f;
-    [SerializeField] float m_jumppower = 1000f;
-    [SerializeField] float m_maxspeed = 1f;
-    [SerializeField] float m_breakCoeff = 0.9f;
-    Vector2 dir = new Vector2(0, 0);
-    Rigidbody2D m_rb;
-    float h;
-    float v;
-    [SerializeField] int _jumpcount = 0;
+    [SerializeField] float _movepower = 5f;
+    [SerializeField] float _jumppower =0;
+    Vector2 _dir = new Vector2(0, 0);
+    int _jumpCount = 0;
+    Rigidbody2D _rb;
+    //Animator _anim;
 
-    Animator _anim;
-    // Start is called before the first frame update
     void Start()
     {
-        _anim = GetComponent<Animator>();
-        m_rb = GetComponent<Rigidbody2D>();
+        //_anim = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        dir = new Vector2(h, 0);
         Move();
         jamp();
     }
     void Move()
     {
-        Vector2 _s = dir.normalized * m_movepower;
-        _s.y = m_rb.velocity.y;
-        m_rb.velocity = _s;
+        float h = Input.GetAxisRaw("Horizontal");
+        _dir = new Vector2(h, 0);
+        Vector2 _s = _dir.normalized * _movepower;
+        _s.y = _rb.velocity.y;
+        _rb.velocity = _s;
     }
-    void FixedUpdate()
-    {
-        
-        
-        //if (h == 0)
-        //{
-        //    if (m_rb.velocity.x != 0)
-        //    {
-        //        _anim.SetBool("isRun", false);
-        //        Vector2 v = m_rb.velocity;
-        //        v.x = v.x * m_breakCoeff;
-        //        m_rb.velocity = v;
-        //    }
-        //}
-        //else
-        //{
-        //    if (h > 0 ? m_rb.velocity.x < m_maxspeed : -1 * m_rb.velocity.x < m_maxspeed)
-        //    {
-        //        _anim.SetBool("isRun", true);
-        //        m_rb.AddForce(Vector2.right * m_movepower * h, ForceMode2D.Force);
-        //        //m_rb.velocity = new Vector2(m_movepower, m_rb.velocity.y);
-        //    }
-        //}
-    }
-
     void jamp()
     {
-        if (Input.GetButtonDown("Jump") && _jumpcount < 2)
+        if (Input.GetButtonDown("Jump") && _jumpCount < 2)
         {
-            m_rb.velocity = Vector2.zero;
-            m_rb.AddForce(transform.up * m_jumppower, ForceMode2D.Impulse);
-            _jumpcount++;
-            Debug.Log(_jumpcount);
+            _rb.velocity = Vector2.zero;
+            _rb.AddForce(transform.up * _jumppower, ForceMode2D.Impulse);
+            _jumpCount++;
+            Debug.Log(_jumpCount);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ground")
         {
-            _jumpcount = 0;
+            _jumpCount = 0;
         }
     }
 }
