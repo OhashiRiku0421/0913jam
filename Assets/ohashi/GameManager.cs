@@ -83,8 +83,8 @@ public class GameManager : MonoBehaviour
             .OnComplete(() => isPlay = true);
         }
     }
-    //public void Reset()
-    //{
-    //    _score = 0;
-    //}
+    public void ResetScoe()
+    {
+        _score = 0;
+    }
 }
