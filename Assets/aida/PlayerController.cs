@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
         Move();
         jamp();
     }
+    /// <summary>
+    /// ˆÚ“®‚Ìˆ—
+    /// </summary>
     void Move()
     {
         float h = Input.GetAxisRaw("Horizontal");
@@ -29,6 +32,9 @@ public class PlayerController : MonoBehaviour
         _s.y = _rb.velocity.y;
         _rb.velocity = _s;
     }
+    /// <summary>
+    /// ƒWƒƒƒ“ƒv‚Ìˆ—
+    /// </summary>
     void jamp()
     {
         if (Input.GetButtonDown("Jump") && _jumpCount < 2)
