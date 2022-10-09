@@ -388,6 +388,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2099373195, guid: 533909774608a9946a99bd913beb0b51, type: 3}
+      propertyPath: _spawninterval
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2099373195, guid: 533909774608a9946a99bd913beb0b51, type: 3}
       propertyPath: _enemyPrefab.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -583,6 +587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2099373195, guid: 533909774608a9946a99bd913beb0b51, type: 3}
+      propertyPath: _spawninterval
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2099373195, guid: 533909774608a9946a99bd913beb0b51, type: 3}
       propertyPath: _enemyPrefab.Array.size
       value: 1
@@ -974,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074497386842038, guid: 3f3d1d3c5d6a00c4583577a0c13ef57d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4074497386842038, guid: 3f3d1d3c5d6a00c4583577a0c13ef57d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9838,7 +9846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 272274357167526645, guid: f9600165c02ca0b40bec0c9a63e6c739, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 272274357167526645, guid: f9600165c02ca0b40bec0c9a63e6c739, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9915,7 +9923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7669824992807830092, guid: 533909774608a9946a99bd913beb0b51, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7669824992807830092, guid: 533909774608a9946a99bd913beb0b51, type: 3}
       propertyPath: m_LocalPosition.x

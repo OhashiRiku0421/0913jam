@@ -19,6 +19,12 @@ public class EnemyController : MonoBehaviour
         {
             _rb.AddForce(-transform.right * _enemySpeed, ForceMode2D.Impulse);
         }
+        StartCoroutine(DestroyInterval());
+    }
+    IEnumerator DestroyInterval()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
     void Update()
