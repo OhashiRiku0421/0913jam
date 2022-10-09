@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     /// <summary> スポナーのTransform /// </summary>
-    [SerializeField] Transform _Spawner;
+    //[SerializeField] Transform _Spawner;
     /// <summary> Enemyのプレハブが入るリスト /// </summary>
     [SerializeField] List<GameObject> _enemyPrefab;
     /// <summary> スポーン間隔のための変数 /// </summary>
     [SerializeField][Header("スポーン間隔")] float _spawninterval = 5f;
     /// <summary> 経過時間のための変数 /// </summary>
-    float _passedtime = 3f;
+    float _passedtime = 0;
 
     void Update()
     {
@@ -24,10 +24,10 @@ public class EnemySpawner : MonoBehaviour
         }
     }
     /// <summary>Enemyオブジェクトをスポーンさせる処理 /// </summary>
-    private void Spawn()
+    void Spawn()
     {
-        int enemyindex = Random.Range(0, _enemyPrefab.Count);//乱数生成
-        GameObject enemy = _enemyPrefab[enemyindex];//乱数で得たIndexのプレハブをleafに入れる
-        Instantiate(enemy, _Spawner);// プレハブから指定の葉オブジェクト生成
+        int enemyindex = Random.Range(0, _enemyPrefab.Count - 1);//乱数生成
+        GameObject instance = Instantiate(_enemyPrefab[enemyindex]);
+        instance.transform.position = transform.position;
     }
 }
