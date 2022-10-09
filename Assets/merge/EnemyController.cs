@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] int _enemySpeed;
+    [SerializeField] int _badScore = 200;
     SpriteRenderer _sprite;
     Rigidbody2D _rb;
     void Start()
@@ -30,5 +31,12 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            GameManager._score -= _badScore;
+        }
     }
 }
