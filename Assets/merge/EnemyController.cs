@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     {
         _sprite = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
-        //エネミーの移動処理
+        //エネミーの移動処理。
         if(_sprite.flipX)
         {
             _rb.AddForce(transform.right * _enemySpeed, ForceMode2D.Impulse);
