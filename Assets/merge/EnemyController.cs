@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //スコアの変動
+        //スコアの変動。
         if(collision.gameObject.tag == "Player")
         {
             GameManager._score -= _badScore;
