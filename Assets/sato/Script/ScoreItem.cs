@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreItem : ItemBase2D
 {
     [SerializeField, Header("â¡éZÉXÉRÉA")] int _addScore = 100;
-
+    [SerializeField] GameManager _gameM;
     float time = 0f;
     float killTime = 8f;
 
@@ -13,6 +13,7 @@ public class ScoreItem : ItemBase2D
 
     private void Awake()
     {
+        _gameM = GameObject.Find("ga").GetComponent<GameManager>();
         _rb = FindObjectOfType<Rigidbody2D>();
     }
     private void Start()
@@ -38,6 +39,6 @@ public class ScoreItem : ItemBase2D
     /// </summary>
     public override void Activate()
     {
-        GameManager._score += _addScore;
+        _gameM.ScoreText(_addScore);
     }
 }

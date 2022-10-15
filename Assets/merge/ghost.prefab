@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySpeed: 5
-  _badScore: 200
+  _badScore: 50
+  _gameM: {fileID: 0}

@@ -7,10 +7,12 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] int _enemySpeed;
     [SerializeField] int _badScore = 200;
+    GameManager _gameM;
     SpriteRenderer _sprite;
     Rigidbody2D _rb;
     void Start()
     {
+        _gameM = GameObject.Find("ga").GetComponent<GameManager>();
         _sprite = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         //エネミーの移動処理。
@@ -34,7 +36,7 @@ public class EnemyController : MonoBehaviour
         //スコアの変動。
         if(collision.gameObject.tag == "Player")
         {
-            GameManager._score -= _badScore;
+            _gameM.ScoreText(_badScore);
         }
     }
 }

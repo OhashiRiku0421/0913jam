@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 203528681}
   - component: {fileID: 203528680}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270678289}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 86818d70e42b8964797aab3bcbb9ed71, type: 3}

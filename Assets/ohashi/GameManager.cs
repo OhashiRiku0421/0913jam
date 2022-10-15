@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
             isPanel = true;
         }
         Timer();
-        Score();
     }
     void Score()
     {
@@ -86,5 +85,13 @@ public class GameManager : MonoBehaviour
     public void ResetScoe()
     {
         _score = 0;
+    }
+    public void ScoreText(int score)
+    {
+        _score += score;
+        DOTween.To(() => score, x => _scoreText.text = _score.ToString("00000"),
+            _score,
+            0.5f)
+            .OnComplete(() => _scoreText.text = _score.ToString("00000"));
     }
 }

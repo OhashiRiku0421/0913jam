@@ -170,7 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCheck: {fileID: 0}
   getSE: {fileID: 8300000, guid: 6ff6dec0c03e155428fc675851097ad9, type: 3}
-  _addScore: 500
+  _addScore: 200
+  _gameM: {fileID: 0}
 --- !u!96 &567367534948828289
 TrailRenderer:
   serializedVersion: 2
