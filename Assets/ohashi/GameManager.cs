@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         panel.GetComponent<Image>().enabled = true;
         panel.GetComponent<Image>().DOFade(1, 1.5f)
             .SetDelay(0.5f)
-            //fadeout‚ªI‚í‚Á‚½‚çŒÄ‚Î‚ê‚é
+            //fadeout‚ªI‚í‚Á‚½‚çŒÄ‚Î‚ê‚éB
             .OnComplete(() => SceneManager.LoadScene(sceneName));
     }
     /// <summary>
