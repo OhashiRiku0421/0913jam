@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        ScoreText(0);
         if (isPlay && !isPanel)
         {
             GameObject panel = GameObject.Find("InPanel");

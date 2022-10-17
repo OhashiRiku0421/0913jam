@@ -18,8 +18,8 @@ public class ScoreItem : ItemBase2D
     }
     private void Start()
     {
-        float vx = Random.Range(-5f, 5f);
-        float vy = Random.Range(-5f, 5f);
+        float vx = Random.Range(-10f, 10f);
+        float vy = Random.Range(-10f, 10f);
         Vector3 force = new Vector3(vx, vy, 0);
         _rb.AddForce(force, (ForceMode2D)ForceMode.Impulse);
     }
