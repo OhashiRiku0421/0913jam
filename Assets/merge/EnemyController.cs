@@ -10,9 +10,11 @@ public class EnemyController : MonoBehaviour
     GameManager _gameM;
     SpriteRenderer _sprite;
     Rigidbody2D _rb;
+    AudioSource _audio;
     void Start()
     {
         _gameM = GameObject.Find("ga").GetComponent<GameManager>();
+        _audio = GetComponent<AudioSource>();
         _sprite = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         //エネミーの移動処理。
@@ -36,7 +38,8 @@ public class EnemyController : MonoBehaviour
         //スコアの変動。
         if(collision.gameObject.tag == "Player")
         {
-            _gameM.ScoreText(_badScore);
+            _audio.Play();
+            _gameM.ScoreText(-_badScore);
         }
     }
 }
